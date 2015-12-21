@@ -1,4 +1,9 @@
-RewriteEngine On
-RewriteCond %{REQUEST_URI} ! \.html$
+RewriteEngine on
+RewriteBase /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
+RewriteRule ^([^.]+)\.html$ http://dezintegro.github.io/$1 [R=301,L]
+RewriteCond %{REQUEST_URI} !(\.[^./]+)$
+RewriteCond %{REQUEST_fileNAME} !-d
+RewriteCond %{REQUEST_fileNAME} !-f
 RewriteCond %{REQUEST_URI} ! /$
 RewriteRule ^(.*)$ $1.html
