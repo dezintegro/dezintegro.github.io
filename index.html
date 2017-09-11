@@ -1,17 +1,45 @@
-<head>Hello!</head><body><h1>Hello, World!<h1><a href = test>Link to test</a></body>
-<!-- {literal} -->
-        <script type='text/javascript'>
-        window['liv'+'eTe'+'x'] = true,
-        window['l'+'iveT'+'exID'] = 144608,
-        window['live'+'Tex_'+'object'] = true;
-        (function() {
-        var t = document['crea'+'te'+'E'+'lemen'+'t']('script');
-        t.type ='text/javascript';
-        t.async = true;
-        t.src = '//cs15.livete'+'x.ru/js/cli'+'ent.j'+'s';
-        var c = document['get'+'El'+'ement'+'sB'+'yTa'+'gName']('script')[0];
-        if ( c ) c['par'+'en'+'t'+'No'+'de']['inser'+'tBefor'+'e'](t, c);
-        else document['doc'+'ument'+'E'+'lem'+'ent']['fir'+'stC'+'hild']['a'+'ppen'+'dC'+'h'+'ild'](t);
-        })();
-        </script>
-        <!-- {/literal} -->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <button onclick="loadNumber()" id="button">Загрузить phones.json!</button>
+
+  <script>
+    function loadNumber() {
+
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('GET', 'nirananda.myjino.ru', true);
+
+
+      xhr.send();
+
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState != 4) return;
+
+        button.innerHTML = 'Готово!';
+
+        if (xhr.status != 200) {
+          // обработать ошибку
+          alert(xhr.status + ': ' + xhr.statusText);
+        } else {
+          // вывести результат
+          alert(xhr.responseText);
+        }
+
+      }
+
+      button.innerHTML = 'Загружаю...';
+      button.disabled = true;
+    }
+  </script>
+
+</body>
+
+</html>
